@@ -1,6 +1,6 @@
 {
   "name": "steam",
-  "description": "Steam OpenId flow",
+  "description": "Steam OpenId flow, mainly used by accounts-steam",
   "homepage": "https://github.com/Multiply/meteor-steam",
   "author": "Jens Ulrich Hjuler Pedersen <multiply@juhp.net> (http://juhp.net)",
   "version": "0.0.1",

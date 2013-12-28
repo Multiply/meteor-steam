@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "steam": {
+        "path": "."
+      }
+    },
+    "packages": {
+      "steam": {
+        "path": "."
+      }
+    }
+  }
+}
