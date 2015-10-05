@@ -21,17 +21,19 @@ Steam.requestCredential = function (options, credentialRequestCompleteCallback) 
   }
 
   var credentialToken = Random.id();
+  var loginStyle = OAuth._loginStyle('steam', config, options);
+  var state = OAuth._stateParam(loginStyle, credentialToken)
 
   var loginUrl =
         'https://steamcommunity.com/openid/login' +
         '?openid.ns=http://specs.openid.net/auth/2.0' +
         '&openid.mode=checkid_setup' +
         // As I couldn't find a better place to stick in the '&state=' I simply put it here
-        '&openid.return_to=' + Meteor.absoluteUrl('_oauth/steam?close%26' + credentialToken) +
+        '&openid.return_to=' + Meteor.absoluteUrl('_oauth/steam?close%26' + state) +
         '&openid.realm=' + Meteor.absoluteUrl() +
         '&openid.identity=http://specs.openid.net/auth/2.0/identifier_select' +
         '&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select' +
-        '&state=' + credentialToken;
+        '&state=' + state;
 
   Oauth.initiateLogin(credentialToken,
                       loginUrl,
